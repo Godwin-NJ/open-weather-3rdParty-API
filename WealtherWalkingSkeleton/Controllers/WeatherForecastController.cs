@@ -37,9 +37,9 @@ namespace WealtherWalkingSkeleton.Controllers
         //}
 
         [HttpGet("GetWeatherForecast")]
-        public IActionResult Get(string location, Unit unit = Unit.Imperial)
+        public async Task<IActionResult> Get(string location, Unit unit = Unit.Imperial)
         {
-            var forecast = _weatherService.GetFiveDayForecast(location, unit);
+            var forecast = await _weatherService.GetFiveDayForecast(location, unit);
             return Ok(forecast);
         }
     }

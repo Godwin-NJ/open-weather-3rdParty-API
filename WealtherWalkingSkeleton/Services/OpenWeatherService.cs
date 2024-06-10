@@ -9,24 +9,26 @@ namespace WealtherWalkingSkeleton.Services
     {
         private OpenWeather _openWeatherConfig;
         private readonly IConfiguration _configuration;
+        private readonly IHttpClientFactory _httpFactory;
 
 
-        public OpenWeatherService(IOptions<OpenWeather> opts, IConfiguration configuration)
+        public OpenWeatherService(IOptions<OpenWeather> opts, IConfiguration configuration, IHttpClientFactory httpFactory)
         {
             _openWeatherConfig = opts.Value;
             _configuration = configuration;
+            _httpFactory = httpFactory;
         }
 
-        public List<WeatherForecast> GetFiveDayForecast(string location, Unit unit = Unit.Metric)
+        public async Task<List<WeatherForecast>> GetFiveDayForecast(string location, Unit unit = Unit.Metric)
         {
             //string url = $"https://api.openweathermap.org/data/2.5/forecast?q={location}&appid={_openWeatherConfig.ApiKey}&units={unit}";
-            string url = $"https://api.openweathermap.org/data/2.5/forecast?q={location}&appid={_configuration.GetSection("OpenWeatherApiKey").Value}&units={unit}";
+            // string url = $"https://api.openweathermap.org/data/2.5/forecast?q={location}&appid={_configuration.GetSection("OpenWeatherApiKey").Value}&units={unit}";
+            string url = BuildOpenWeatherUrl("forecast", location, unit);
             var forecasts = new List<WeatherForecast>();
-            using (HttpClient client = new HttpClient())
-            {
-                var response = client.GetAsync(url).Result;
+            var client = _httpFactory.CreateClient();
+            var response = await client.GetAsync(url);
                // Console.WriteLine(response);
-                var json = response.Content.ReadAsStringAsync().Result;
+                var json = await  response.Content.ReadAsStringAsync();
                 var openWeatherResponse = JsonSerializer.Deserialize<OpenWeatherResponse>(json);
                 foreach (var forecast in openWeatherResponse.Forecasts)
                 {
@@ -39,8 +41,16 @@ namespace WealtherWalkingSkeleton.Services
                         TempMax = forecast.Temps.TempMax,
                     });
                 }
-            }
+          
             return forecasts;
+        }
+
+        private string BuildOpenWeatherUrl(string resource, string location, Unit unit)
+        {
+            return $"https://api.openweathermap.org/data/2.5/{resource}" +
+                   $"?appid={_configuration.GetSection("OpenWeatherApiKey").Value}" +
+                   $"&q={location}" +
+                   $"&units={unit}";
         }
 
     }

@@ -10,6 +10,6 @@ namespace WealtherWalkingSkeleton.Services
     }
     public interface IOpenWeatherService
     {
-        List<WeatherForecast> GetFiveDayForecast(string location, Unit unit = Unit.Metric);
+        Task<List<WeatherForecast>> GetFiveDayForecast(string location, Unit unit = Unit.Metric);
     }
 }

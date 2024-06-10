@@ -22,6 +22,7 @@ namespace WealtherWalkingSkeleton
             builder.Services.AddSwaggerGen();
             builder.Services.Configure<OpenWeather>(openWeatherConfig);
             builder.Services.AddScoped<IOpenWeatherService, OpenWeatherService>();
+            builder.Services.AddHttpClient();
 
             var app = builder.Build();
 
