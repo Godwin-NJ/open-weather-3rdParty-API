@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WealtherWalkingSkeleton")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f2788a0ecea8b7a7f33fa2e9accfa665f1fa4b0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a73ddec4f4f4a9b5e15a2490eb8a6c947eb4e13")]
 [assembly: System.Reflection.AssemblyProductAttribute("WealtherWalkingSkeleton")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WealtherWalkingSkeleton")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
