@@ -30,3 +30,4 @@ C:\Users\ITAP006\Desktop\C#-Tut\2024\WealtherWalkingSkeleton\WealtherWalkingSkel
 C:\Users\ITAP006\Desktop\C#-Tut\2024\WealtherWalkingSkeleton\WealtherWalkingSkeleton\obj\Debug\net6.0\WealtherWalkingSkeleton.pdb
 C:\Users\ITAP006\Desktop\C#-Tut\2024\WealtherWalkingSkeleton\WealtherWalkingSkeleton\obj\Debug\net6.0\WealtherWalkingSkeleton.genruntimeconfig.cache
 C:\Users\ITAP006\Desktop\C#-Tut\2024\WealtherWalkingSkeleton\WealtherWalkingSkeleton\obj\Debug\net6.0\ref\WealtherWalkingSkeleton.dll
+C:\Users\ITAP006\Desktop\C#-Tut\2024\WealtherWalkingSkeleton\WealtherWalkingSkeleton\obj\Debug\net6.0\WealtherWalkingSkeleton.sourcelink.json

@@ -25,7 +25,7 @@ namespace WealtherWalkingSkeleton.Services
             using (HttpClient client = new HttpClient())
             {
                 var response = client.GetAsync(url).Result;
-                Console.WriteLine(response);
+               // Console.WriteLine(response);
                 var json = response.Content.ReadAsStringAsync().Result;
                 var openWeatherResponse = JsonSerializer.Deserialize<OpenWeatherResponse>(json);
                 foreach (var forecast in openWeatherResponse.Forecasts)
